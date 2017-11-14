@@ -12,14 +12,8 @@ ArrayList<Product> bill = new ArrayList<Product>();
 
 float total=0;
 //this is for the display bill to move downwrds
-float []billSize = new float[bill.size()];
 float shift = 0;
 boolean press = false;
-String prodName;
-
-float billX = width/2;
-float billBorder = billX + 200;
-
 /*
 Write a function called loadData that loads the data from the
  file and populates the products ArrayList.Call this from setup.
@@ -88,10 +82,10 @@ fill(255);
 rect(width/2 + 50 ,50,300 ,height-100);
 fill(0);
 text("Your Bill",(width/2)+150,80);
-//to display the bill with the text
+//to display the bill with the text function is uesd 
 //for(int i=0; i<products.size(); i++){
 //  fill(0);
-//  text(total , (width/2) + 100,75+(i*(height-50)/products.size()));
+// text(total , (width/2) + 100,75+(i*(height-50)/products.size()));
 //}
 
 
@@ -109,7 +103,7 @@ void setup() {
 
 
 void draw() {
- 
+ //background(175);
   //displayProducts();
   //displayBill();
   //background(175);
