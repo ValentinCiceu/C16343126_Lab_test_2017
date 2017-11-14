@@ -14,6 +14,12 @@ float total=0;
 //this is for the display bill to move downwrds
 float []billSize = new float[bill.size()];
 float shift = 0;
+boolean press = false;
+String prodName;
+
+float billX = width/2;
+float billBorder = billX + 200;
+
 /*
 Write a function called loadData that loads the data from the
  file and populates the products ArrayList.Call this from setup.
@@ -46,7 +52,7 @@ void displayProducts(){
     rect(50,50+(i*(height-50)/products.size()),250,50);
     fill(0);
     text(products.get(i).name,100,75+(i*(height-50)/products.size()));//name
-    text(products.get(i).price,200,75+(i*(height-50)/products.size()));//price
+    text(products.get(i).price,250,75+(i*(height-50)/products.size()));//price
   }
   //to diplay the product
 }
@@ -61,13 +67,15 @@ void mousePressed(){
  if(mouseX >50 && mouseX < 300 && mouseY >50+(i*(height-50)/products.size()) && mouseY <(50+(i*(height-50)/products.size()))+50){
    println(products.get(i).name);
    total=total + products.get(i).price;
-   println("total" + total);
+   println("Your total is: " + total);
    //to display the products
    //total = y + shift
    text(products.get(i).name,(width/2)+100,100+shift);
    text(products.get(i).price,(width/2)+300,100+shift);
    shift+=30;
-   text(total,(width/2)+300,150+shift);
+   //text(total,(width/2)+300,400);
+  //press=true;
+  //println(press);
  }
   }
 }
@@ -77,7 +85,7 @@ void mousePressed(){
 void displayBill(){
 //draw the second half of the screen
 fill(255);
-rect((width/2) + 50,50,300,height-100);
+rect(width/2 + 50 ,50,300 ,height-100);
 fill(0);
 text("Your Bill",(width/2)+150,80);
 //to display the bill with the text
@@ -101,8 +109,15 @@ void setup() {
 
 
 void draw() {
-  //background(175);
+ 
   //displayProducts();
   //displayBill();
+  //background(175);
+  ////text(total,(width/2)+300,400);
 
 }
+
+
+
+
+  
