@@ -9,6 +9,11 @@ Valentin Ciceu Octavian
  */
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> bill = new ArrayList<Product>();
+
+float total=0;
+//this is for the display bill to move downwrds
+float []billSize = new float[bill.size()];
+float shift = 0;
 /*
 Write a function called loadData that loads the data from the
  file and populates the products ArrayList.Call this from setup.
@@ -40,7 +45,8 @@ void displayProducts(){
     fill(255);
     rect(50,50+(i*(height-50)/products.size()),250,50);
     fill(0);
-    text(products.get(i).name,100,75+(i*(height-50)/products.size()));
+    text(products.get(i).name,100,75+(i*(height-50)/products.size()));//name
+    text(products.get(i).price,200,75+(i*(height-50)/products.size()));//price
   }
   //to diplay the product
 }
@@ -54,18 +60,49 @@ void mousePressed(){
   for(int i=0; i< products.size(); i++){
  if(mouseX >50 && mouseX < 300 && mouseY >50+(i*(height-50)/products.size()) && mouseY <(50+(i*(height-50)/products.size()))+50){
    println(products.get(i).name);
+   total=total + products.get(i).price;
+   println("total" + total);
+   //to display the products
+   //total = y + shift
+   text(products.get(i).name,(width/2)+100,100+shift);
+   text(products.get(i).price,(width/2)+300,100+shift);
+   shift+=30;
+   text(total,(width/2)+300,150+shift);
  }
   }
 }
 
 
+//write function to display the bill
+void displayBill(){
+//draw the second half of the screen
+fill(255);
+rect((width/2) + 50,50,300,height-100);
+fill(0);
+text("Your Bill",(width/2)+150,80);
+//to display the bill with the text
+//for(int i=0; i<products.size(); i++){
+//  fill(0);
+//  text(total , (width/2) + 100,75+(i*(height-50)/products.size()));
+//}
+
+
+}
+
+
 void setup() {
   size(800, 600);
+  background(175);
   printProducts();
   displayProducts();
+  displayBill();
+  
 }
 
 
 void draw() {
+  //background(175);
+  //displayProducts();
+  //displayBill();
 
 }
