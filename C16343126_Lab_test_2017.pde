@@ -32,11 +32,40 @@ void printProducts() {
   }
 }
 
+//display products
+void displayProducts(){
+  //first divide the screen to two
+  line(width/2,0,width/2,height);//divding the screen
+  for(int i=0; i< products.size(); i++){
+    fill(255);
+    rect(50,50+(i*(height-50)/products.size()),250,50);
+    fill(0);
+    text(products.get(i).name,100,75+(i*(height-50)/products.size()));
+  }
+  //to diplay the product
+}
+
+/*
+Write code for the mousePressed function that allows 
+the user to click on a product and have it added to the bill ArrayList.
+*/
+void mousePressed(){
+  //calculating each square dimensions
+  for(int i=0; i< products.size(); i++){
+ if(mouseX >50 && mouseX < 300 && mouseY >50+(i*(height-50)/products.size()) && mouseY <(50+(i*(height-50)/products.size()))+50){
+   println(products.get(i).name);
+ }
+  }
+}
+
+
 void setup() {
   size(800, 600);
   printProducts();
+  displayProducts();
 }
 
 
 void draw() {
+
 }

@@ -12,6 +12,7 @@ class Product{
    return name + " , "  + "price "  + price;
   }
   
+  //to add the products
   void update(){
   }
   
